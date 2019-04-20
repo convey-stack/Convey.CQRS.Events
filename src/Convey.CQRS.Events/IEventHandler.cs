@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using Convey.MessageBrokers.RabbitMQ;
+using Convey.MessageBrokers;
 
 namespace Convey.CQRS.Events
 {

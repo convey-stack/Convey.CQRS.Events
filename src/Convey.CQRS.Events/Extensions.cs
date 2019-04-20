@@ -1,6 +1,6 @@
 using System;
 using System.Threading.Tasks;
-using Convey.MessageBrokers.RabbitMQ;
+using Convey.MessageBrokers;
 using Convey.Types;
 using Microsoft.Extensions.DependencyInjection;
 

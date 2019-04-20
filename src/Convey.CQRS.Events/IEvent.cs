@@ -1,4 +1,4 @@
-using Convey.Types;
+using Convey.MessageBrokers;
 
 namespace Convey.CQRS.Events
 {
