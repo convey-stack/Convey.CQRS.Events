@@ -1,4 +1,4 @@
-using Convey.MessageBrokers.RabbitMQ;
+using Convey.Types;
 
 namespace Convey.CQRS.Events
 {
