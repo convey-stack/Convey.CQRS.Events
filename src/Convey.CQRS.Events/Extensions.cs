@@ -13,6 +13,11 @@ namespace Convey.CQRS.Events
                     .AsImplementedInterfaces()
                     .WithTransientLifetime());
 
+            return builder;
+        }
+        
+        public static IConveyBuilder AddInMemoryEventDispatcher(this IConveyBuilder builder)
+        {
             builder.Services.AddTransient<IEventDispatcher, EventDispatcher>();
             return builder;
         }
