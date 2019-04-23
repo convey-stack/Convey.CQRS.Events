@@ -13,7 +13,7 @@ namespace Convey.CQRS.Events.Dispatchers
             _serviceProvider = serviceProvider;
         }
         
-        public Task PublishAsync<T>(T @event) where T : IEvent
+        public Task PublishAsync<T>(T @event) where T : class, IEvent
         {
             using (var scope = _serviceProvider.CreateScope())
             {

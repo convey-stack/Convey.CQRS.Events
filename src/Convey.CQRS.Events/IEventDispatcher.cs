@@ -4,6 +4,6 @@ namespace Convey.CQRS.Events
 {
     public interface IEventDispatcher
     {
-        Task PublishAsync<T>(T @event) where T : IEvent;
+        Task PublishAsync<T>(T @event) where T : class, IEvent;
     }
 }
