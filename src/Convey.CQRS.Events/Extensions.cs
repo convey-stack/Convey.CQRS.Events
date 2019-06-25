@@ -19,7 +19,7 @@ namespace Convey.CQRS.Events
         
         public static IConveyBuilder AddInMemoryEventDispatcher(this IConveyBuilder builder)
         {
-            builder.Services.AddTransient<IEventDispatcher, EventDispatcher>();
+            builder.Services.AddSingleton<IEventDispatcher, EventDispatcher>();
             return builder;
         }
     }

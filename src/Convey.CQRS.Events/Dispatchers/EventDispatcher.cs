@@ -9,22 +9,18 @@ namespace Convey.CQRS.Events.Dispatchers
         private readonly IServiceProvider _serviceProvider;
 
         public EventDispatcher(IServiceProvider serviceProvider)
-        {
-            _serviceProvider = serviceProvider;
-        }
+            => _serviceProvider = serviceProvider;
         
         public Task PublishAsync<T>(T @event) where T : class, IEvent
         {
-            using (var scope = _serviceProvider.CreateScope())
+            var handler = _serviceProvider.GetService<IEventHandler<T>>();
+            
+            if (handler is null)
             {
-                var handler = scope.ServiceProvider.GetService<IEventHandler<T>>();
-                if (handler is null)
-                {
-                    throw new InvalidOperationException($"Event handler for: '{@event}' was not found.");
-                }
-                
-                return handler.HandleAsync(@event);
+                throw new InvalidOperationException($"Event handler for: '{@event}' was not found.");
             }
+                
+            return handler.HandleAsync(@event);
         }
     }
 }
