@@ -6,16 +6,16 @@ namespace Convey.CQRS.Events.Dispatchers
 {
     internal sealed class EventDispatcher : IEventDispatcher
     {
-        private readonly IServiceProvider _serviceProvider;
+        private readonly IServiceScopeFactory _serviceFactory;
 
-        public EventDispatcher(IServiceProvider serviceProvider)
+        public EventDispatcher(IServiceScopeFactory serviceFactory)
         {
-            _serviceProvider = serviceProvider;
+            _serviceFactory = serviceFactory;
         }
         
         public Task PublishAsync<T>(T @event) where T : class, IEvent
         {
-            using (var scope = _serviceProvider.CreateScope())
+            using (var scope = _serviceFactory.CreateScope())
             {
                 var handler = scope.ServiceProvider.GetService<IEventHandler<T>>();
                 if (handler is null)
