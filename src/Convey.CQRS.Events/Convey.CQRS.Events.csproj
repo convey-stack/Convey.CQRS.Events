@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
   <PropertyGroup>
     <Description>Convey.CQRS.Events</Description>
     <Authors>DevMentors.io</Authors>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
     <AssemblyName>Convey.CQRS.Events</AssemblyName>
     <Title>Convey.CQRS.Events</Title>
     <PackageId>Convey.CQRS.Events</PackageId>
